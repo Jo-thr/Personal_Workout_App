@@ -6,7 +6,7 @@ export interface DefaultLayoutProps {
 
 export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
-    <div className="h-screen w-screen flex items-center justify-center overflow-hidden">
+    <div className="h-screen w-screen p-40 bg-black text-white flex items-center justify-center overflow-hidden">
       {children}
     </div>
   );

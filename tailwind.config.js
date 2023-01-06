@@ -2,6 +2,7 @@
 
 const THEME_COLORS = {
   primary: "#0123FF",
+  black: "#1C1C1C",
 };
 
 module.exports = {
