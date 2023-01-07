@@ -2,7 +2,16 @@
 import ctl from "@netlify/classnames-template-literals";
 import cn from "clsx";
 import { useState } from "react";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronRightIcon,
+  ChevronLeftIcon,
+  ClockIcon,
+  SunIcon,
+  ArrowPathIcon,
+  FireIcon,
+} from "@heroicons/react/24/outline";
+import { Collapse } from "@components/Collapse/Collapse";
+import Timer from "@components/Timer/Timer";
 
 export type TabsProps = {
   tabs: Record<string, any>;
@@ -33,43 +42,16 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
 
   return (
     <div className="w-full">
-      {/* TAB NAV */}
-      <div className="absolute top-[26vh] left-[50%] -translate-x-[50%]">
-        <div className="flex justify-center gap-2 items-center">
-          {tabs.map((tab) => (
-            <div key={tab.name}>
-              <div
-                href={tab.href}
-                onClick={() => setActiveTab(tab.id)}
-                className={ctl(`w-12 h-1 items-center
-                    ${
-                      tab.id === activeTab
-                        ? "bg-amber-400 "
-                        : "bg-amber-400 opacity-30 "
-                    }
-                    ${tab.id < activeTab && "bg-gray-600"}
-                    `)}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* TAB CONTENT */}
       {tabs.map((tab) => (
         <div
           key={tab.name}
           className={cn(
-            `mt-40 flex-col items-center gap-6 rounded-lg h-[50vh] p-4 ${
+            `flex-col items-center gap-6 rounded-lg h-[86vh] p-4 ${
               tab.id === activeTab ? "flex" : "hidden"
             }`
           )}
         >
-          <div className="absolute top-[16vh] left-[50%] -translate-x-[50%] text-center ">
-            <h1 className="mb-1">{title}</h1>
-            <span className="text-amber-400">{tab.name}</span>
-          </div>
-          <p className="text-xs w-4/5">{tab.description}</p>
           {/* PREV / PLAY / NEXT */}
           <div className="w-full flex justify-center items-center gap-12">
             <div
@@ -83,8 +65,9 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
                 </>
               )}
             </div>
-            <div className="rounded-full hover:cursor-pointer font-bold w-20 h-20 bg-amber-400 flex items-center justify-center">
-              Play
+            <div className="relative text-center w-64 ">
+              <h1 className="mb-1">{title}</h1>
+              <span className="text-accent uppercase">{tab.name}</span>
             </div>
             <div
               onClick={handleClickedMore}
@@ -97,8 +80,94 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
               )}
             </div>
           </div>
+
+          {/* NUMBER  */}
+          <div className="min-w-[60%] flex bg-gray-600 bg-opacity-10 border border-gray-700 rounded-3xl shadow-blur p-6 flex-row items-center justify-center gap-y-4 gap-x-20 mt-6 ">
+            {tab.duration && (
+              <div className="flex flex-row items-center justify-start gap-4">
+                <div className="p-4 mb-2 border border-white rounded-full">
+                  <ClockIcon className="w-8 h-8" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-accent text-lg font-bold">
+                    {tab.duration?.time}
+                    {tab.duration?.mesure}
+                  </span>
+                  {tab.duration?.object}
+                </div>
+              </div>
+            )}
+            {tab.repetition && (
+              <div className="flex flex-row items-center justify-start gap-4">
+                <div className="p-4 mb-2 border border-white rounded-full">
+                  <FireIcon className="w-8 h-8" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-accent text-lg font-bold">
+                    {tab.repetition?.number}
+                  </span>
+                  {tab.repetition?.object}
+                </div>
+              </div>
+            )}
+            {tab.rest && (
+              <div className="flex flex-row items-center justify-start gap-4">
+                <div className="p-4 mb-2 border border-white rounded-full">
+                  <SunIcon className="w-8 h-8" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-accent text-lg font-bold">
+                    {tab.rest?.time}
+                  </span>
+                  {tab.rest?.object}
+                </div>
+              </div>
+            )}
+            {tab.series && (
+              <div className="flex flex-row items-center justify-start gap-4">
+                <div className="p-4 mb-2 border border-white rounded-full">
+                  <ArrowPathIcon className="w-8 h-8" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-accent text-lg font-bold">
+                    {tab.series?.number}
+                  </span>
+                  {tab.series?.object}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* DESCRIPTION */}
+          {tab.description && (
+            <Collapse title={"Description"} content={tab.description} />
+          )}
+
+          <Timer time={tab.duration?.time} />
         </div>
       ))}
+
+      {/* TAB NAV */}
+      <div className="relative">
+        <div className="flex justify-center gap-2 items-center">
+          {tabs.map((tab) => (
+            <div key={tab.name}>
+              <div
+                href={tab.href}
+                onClick={() => setActiveTab(tab.id)}
+                className={ctl(`w-12 h-1 items-center
+                    ${
+                      tab.id === activeTab
+                        ? "bg-accent "
+                        : "bg-accent opacity-30 "
+                    }
+                    ${tab.id < activeTab && "bg-gray-600"}
+                    `)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
