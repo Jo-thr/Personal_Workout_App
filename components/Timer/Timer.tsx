@@ -11,9 +11,10 @@ function padTime(time: number) {
 
 export type TimerProps = {
   time?: number;
+  title?: string;
 };
 
-export default function Timer({ time }: TimerProps) {
+export default function Timer({ time, title }: TimerProps) {
   const [timeLeft, setTimeLeft] = useState(time);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -54,15 +55,17 @@ export default function Timer({ time }: TimerProps) {
       <div className="relative mt-12 w-full buttons flex justify-between">
         {!isRunning && (
           <button
-            className="absolute left-[50%] uppercase font-bold top-10 -translate-x-[50%] bg-black px-5"
+            className="absolute hover:cursor-pointer left-[50%] leading-4 uppercase font-bold top-9 -translate-x-[50%] bg-black px-3"
             onClick={startTimer}
           >
             Start
+            <br />
+            <span className="text-sm text-accent lowercase">{title}</span>
           </button>
         )}
         {timeLeft === 0 && (
           <button
-            className="absolute left-[50%] uppercase top-10 font-bold -translate-x-[50%] bg-black px-5"
+            className="absolute left-[50%] hover:cursor-pointer  uppercase top-10 font-bold -translate-x-[50%] bg-black px-5"
             onClick={resetTimer}
           >
             Replay

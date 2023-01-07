@@ -82,57 +82,78 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
           </div>
 
           {/* NUMBER  */}
-          <div className="min-w-[60%] flex bg-gray-600 bg-opacity-10 border border-gray-700 rounded-3xl shadow-blur p-6 flex-row items-center justify-center gap-y-4 gap-x-20 mt-6 ">
-            {tab.duration && (
+          <div className="min-w-[60%] flex bg-gray-600 bg-opacity-10 border border-gray-700 rounded-3xl shadow-blur py-6 px-10 flex-row items-center justify-center gap-y-4 gap-x-20 mt-6 ">
+            {tab.series && (
               <div className="flex flex-row items-center justify-start gap-4">
-                <div className="p-4 mb-2 border border-white rounded-full">
-                  <ClockIcon className="w-8 h-8" />
+                <div className="p-3 mb-2 border border-white rounded-full">
+                  <ArrowPathIcon className="w-7 h-7" />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-accent text-lg font-bold">
-                    {tab.duration?.time}
-                    {tab.duration?.mesure}
-                  </span>
-                  {tab.duration?.object}
+                <div className="flex flex-col gap-1">
+                  {tab.series.map((item, index) => (
+                    <div
+                      key={index}
+                      className={ctl(
+                        `flex gap-1 ${
+                          tab.series.length > 1 ? "flex-row" : "flex-col"
+                        } `
+                      )}
+                    >
+                      <span className="text-accent text-lg font-bold leading-4">
+                        {item?.number} {item?.mesure}
+                      </span>
+                      <span className="text-sm">{item?.object}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
             {tab.repetition && (
               <div className="flex flex-row items-center justify-start gap-4">
-                <div className="p-4 mb-2 border border-white rounded-full">
-                  <FireIcon className="w-8 h-8" />
+                <div className="p-3 mb-2 border border-white rounded-full">
+                  <FireIcon className="w-7 h-7" />
+                </div>
+                <div className="flex flex-col gap-1">
+                  {tab.repetition.map((item, index) => (
+                    <div
+                      key={index}
+                      className={ctl(
+                        `flex max-w-[14rem] gap-1 ${
+                          tab.repetition.length > 1 ? "flex-row" : "flex-col"
+                        } `
+                      )}
+                    >
+                      <span className="text-accent text-lg font-bold leading-4">
+                        {item?.number} {item?.mesure}
+                      </span>
+                      <span className="text-sm">{item?.object}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {tab.duration && (
+              <div className="flex flex-row items-center justify-start gap-4">
+                <div className="p-3 mb-2 border border-white rounded-full">
+                  <ClockIcon className="w-7 h-7" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-accent text-lg font-bold">
-                    {tab.repetition?.number}
+                  <span className="text-accent text-lg font-bold leading-4">
+                    {tab.duration?.time} {tab.duration?.mesure}
                   </span>
-                  {tab.repetition?.object}
+                  <span className="text-sm">{tab.duration?.object}</span>
                 </div>
               </div>
             )}
             {tab.rest && (
               <div className="flex flex-row items-center justify-start gap-4">
-                <div className="p-4 mb-2 border border-white rounded-full">
-                  <SunIcon className="w-8 h-8" />
+                <div className="p-3 mb-2 border border-white rounded-full">
+                  <SunIcon className="w-7 h-7" />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-accent text-lg font-bold">
-                    {tab.rest?.time}
+                <div className="flex flex-col min-w-max">
+                  <span className="text-accent text-lg font-bold leading-4">
+                    {tab.rest?.time} {tab.rest?.mesure}
                   </span>
-                  {tab.rest?.object}
-                </div>
-              </div>
-            )}
-            {tab.series && (
-              <div className="flex flex-row items-center justify-start gap-4">
-                <div className="p-4 mb-2 border border-white rounded-full">
-                  <ArrowPathIcon className="w-8 h-8" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-accent text-lg font-bold">
-                    {tab.series?.number}
-                  </span>
-                  {tab.series?.object}
+                  <span className="text-sm">{tab.rest?.object}</span>
                 </div>
               </div>
             )}
@@ -142,8 +163,10 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
           {tab.description && (
             <Collapse title={"Description"} content={tab.description} />
           )}
-
-          <Timer time={tab.duration?.time} />
+          {tab.duration?.time && (
+            <Timer time={tab.duration?.time} title={tab.duration?.object} />
+          )}
+          {tab.rest && <Timer time={tab.rest?.time} title={tab.rest?.object} />}
         </div>
       ))}
 
