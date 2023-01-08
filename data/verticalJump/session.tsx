@@ -38,7 +38,7 @@ const session = {
         </>
       ),
       image: {
-        src: seance01,
+        src: "/images/seance/01.png",
         title: "Cheverside",
       },
       video: {

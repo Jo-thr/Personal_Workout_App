@@ -217,14 +217,15 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
 
           {/* IMAGE & TIMER */}
           <div className="flex w-full flex-col items-center md:w-3/5 md:min-w-[60%] md:flex-row md:items-start md:justify-around">
-            <div className="relative mt-6 hidden h-36 w-full overflow-hidden bg-amber-100 object-cover object-center md:flex md:h-52 md:w-96">
-              {tab?.image?.src && (
-                <Image
-                  src={tab?.image?.src}
-                  quality={100}
-                  alt={tab?.image?.title}
-                />
-              )}
+            <div className="relative mt-6 hidden h-52 w-96 overflow-hidden md:flex">
+              <div
+                style={{
+                  backgroundImage: tab?.image?.src
+                    ? `url("${tab?.image?.src}")`
+                    : `url("https://aandacht.be/wp-content/uploads/placeholder-2.png")`,
+                }}
+                className="h-full w-full bg-cover bg-bottom bg-no-repeat object-cover"
+              />
             </div>
 
             {(tab.duration?.time || tab.rest) && (
@@ -243,11 +244,14 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
               </>
             )}
 
-            <div className="relative mt-36 flex h-36 w-full overflow-hidden bg-amber-100 object-cover object-center md:hidden md:h-52 md:w-96">
-              <Image
-                src={tab?.image?.src}
-                quality={100}
-                alt={tab?.image?.title}
+            <div className="relative mt-36 h-40 min-h-[10rem] w-full overflow-hidden md:hidden">
+              <div
+                style={{
+                  backgroundImage: tab?.image?.src
+                    ? `url("${tab?.image?.src}")`
+                    : `url("https://aandacht.be/wp-content/uploads/placeholder-2.png")`,
+                }}
+                className="h-full w-full bg-cover bg-bottom bg-no-repeat object-cover"
               />
             </div>
           </div>

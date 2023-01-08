@@ -16,11 +16,11 @@ export const Collapse = ({
   const [clicked, setClicked] = useState(false);
 
   return (
-    <div className="relative grid h-auto w-full md:w-3/5 border border-gray-700 rounded-xl origin-center gap-3">
+    <div className="relative hidden h-auto w-full origin-center gap-3 rounded-xl border border-gray-700 md:grid md:w-3/5">
       <div>
         <div
           className={cn(
-            `relative inset-x-0 top-0 flex flex-row items-center px-4 py-2 md:py-3 bg-gray-600 bg-opacity-10 md:text-base text-xs
+            `relative inset-x-0 top-0 flex flex-row items-center bg-gray-600 bg-opacity-10 px-4 py-2 text-xs md:py-3 md:text-base
             ${clicked === true ? "rounded-t-lg" : "rounded-lg"}
             ${iconPosition === "left" ? "justify-start" : "justify-between"}`
           )}
@@ -34,7 +34,7 @@ export const Collapse = ({
           )}
         </div>
         {clicked === true && (
-          <div className="relative text-sm text-gray-400 rounded-b-lg border-t border-t-gray-600 bg-gray-600 bg-opacity-10 p-4">
+          <div className="relative rounded-b-lg border-t border-t-gray-600 bg-gray-600 bg-opacity-10 p-4 text-sm text-gray-400">
             {content}
           </div>
         )}
