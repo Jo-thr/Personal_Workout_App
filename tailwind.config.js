@@ -2,6 +2,8 @@
 
 const THEME_COLORS = {
   primary: "#0123FF",
+  black: "#1C1C1C",
+  accent: "#BBF247",
 };
 
 module.exports = {
