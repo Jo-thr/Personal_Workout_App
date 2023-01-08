@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { Metadata } from "helpers/metadata";
+import { ReactNode, useEffect, useRef } from "react";
 
 export interface DefaultLayoutProps {
   children: ReactNode;
@@ -6,8 +7,11 @@ export interface DefaultLayoutProps {
 
 export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
   return (
-    <div className="h-screen w-screen p-10 md:p-40 bg-black text-white flex items-center justify-center overflow-y-scroll overflow-x-hidden md:overflow-hidden">
-      {children}
-    </div>
+    <>
+      <Metadata title="Workout App" />
+      <div className="flex h-screen w-screen items-center justify-center overflow-x-hidden overflow-y-scroll bg-black p-10 text-white md:overflow-hidden md:p-40">
+        {children}
+      </div>
+    </>
   );
 };
