@@ -17,8 +17,6 @@ export const Select = ({ status, check }: SelectProps) => {
   const [active, setActive] = useState(week[0].name);
   const [show, setShow] = useState(false);
 
-  console.log(active);
-
   const contactSelected = week.find((person) => person.name === active);
 
   return (

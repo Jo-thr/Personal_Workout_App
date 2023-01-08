@@ -9,7 +9,7 @@ export interface CardProps {
 export const Card = ({ data }: CardProps) => {
   return (
     <Link href={data.slug}>
-      <div className="group relative flex flex-col justify-end shadow-blur w-[500px] h-52 rounded-lg overflow-hidden hover:cursor-pointer">
+      <div className="group relative flex flex-col justify-end shadow-blur w-full md:w-[500px] h-36 md:h-52 rounded-lg overflow-hidden hover:cursor-pointer">
         <div className="absolute w-full h-2/3 z-0 bottom-0 bg-gradient-to-t from-gray-800 to-transparent" />
 
         <div className="aboslute bottom-0 object-bottom object-cover w-full group-hover:w-[110%] group-hover:-ml-[5%] transition-all duration-500">
