@@ -11,7 +11,7 @@ export default function Home() {
             <h1 className="mb-4 whitespace-nowrap text-center ">HELLO !</h1>
             {/* <Select /> */}
           </div>
-          <div className="flex w-full flex-wrap justify-around gap-8">
+          <div className="flex w-full flex-wrap justify-around gap-4 md:gap-8">
             <Card data={datas.warmup} key={datas.warmup.name} />
             <Card data={datas.session} key={datas.session.name} />
             <Card data={datas.stretching} key={datas.stretching.name} />
