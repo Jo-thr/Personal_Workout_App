@@ -244,14 +244,20 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
               </>
             )}
 
-            <div className="relative mt-36 h-40 min-h-[10rem] w-full overflow-hidden md:hidden">
+            <div
+              className={ctl(
+                `relative h-40 min-h-[10rem] w-full overflow-hidden rounded-3xl md:hidden ${
+                  tab.duration?.time || tab.rest ? "mt-36" : "mt-6"
+                }`
+              )}
+            >
               <div
                 style={{
                   backgroundImage: tab?.image?.src
                     ? `url("${tab?.image?.src}")`
                     : `url("https://aandacht.be/wp-content/uploads/placeholder-2.png")`,
                 }}
-                className="h-full w-full bg-cover bg-bottom bg-no-repeat object-cover"
+                className="h-full w-full bg-cover bg-center bg-no-repeat object-cover"
               />
             </div>
           </div>
