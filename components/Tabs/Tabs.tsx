@@ -1,6 +1,13 @@
 import ctl from "@netlify/classnames-template-literals";
 import cn from "clsx";
-import { JSXElementConstructor, Key, ReactElement, ReactFragment, ReactPortal, useState } from "react";
+import {
+  JSXElementConstructor,
+  Key,
+  ReactElement,
+  ReactFragment,
+  ReactPortal,
+  useState,
+} from "react";
 import {
   ChevronRightIcon,
   ChevronLeftIcon,
@@ -19,6 +26,7 @@ export type TabsProps = {
 };
 
 export const Tabs = ({ tabs, title }: TabsProps) => {
+  //@ts-ignore
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   const dataLength = tabs.length;
@@ -45,134 +53,226 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
         <div
           key={tab.name}
           className={cn(
-            `flex-col items-center gap-4 md:gap-6 rounded-lg h-[86vh] md:p-4 ${
+            `h-[86vh] flex-col items-center gap-4 rounded-lg md:gap-6 md:p-4 ${
               tab.id === activeTab ? "flex" : "hidden"
             }`
           )}
         >
           {/* PREV / TITLE / NEXT */}
-          <div className="w-full flex flex-col md:flex-row justify-center items-center gap-2 md:gap-12">
-
+          <div className="flex w-full flex-col items-center justify-center gap-2 md:flex-row md:gap-12">
             <div
               onClick={handleClickedLess}
-              className="hover:cursor-pointer p-4 text-right hidden md:flex items-center w-max rounded-md text-xs text-gray-500"
+              className="hidden w-max items-center rounded-md p-4 text-right text-xs text-gray-500 hover:cursor-pointer md:flex"
             >
               {tab.id > 1 && (
                 <>
-                  <ChevronLeftIcon className="mr-2 w-4 h-4" />
+                  <ChevronLeftIcon className="mr-2 h-4 w-4" />
                   Preview
                 </>
               )}
             </div>
 
-            <div className="relative text-center w-full md:w-80">
+            <div className="relative w-full text-center md:w-80">
               <h1 className="mb-1">{title}</h1>
-              <h2 className="text-accent uppercase">{tab.name}</h2>
+              <h2 className="uppercase text-accent">{tab.name}</h2>
             </div>
 
             <div
               onClick={handleClickedMore}
-              className="hover:cursor-pointer p-4 w-max text-left hidden md:flex items-center rounded-md text-xs text-gray-300"
+              className="hidden w-max items-center rounded-md p-4 text-left text-xs text-gray-300 hover:cursor-pointer md:flex"
             >
               {tab.id !== dataLength && (
                 <>
-                  Next <ChevronRightIcon className="ml-2 w-4 h-4" />
+                  Next <ChevronRightIcon className="ml-2 h-4 w-4" />
                 </>
               )}
             </div>
 
-            <div className="flex flex-row items-center justify-around md:hidden"><div
-              onClick={handleClickedLess}
-              className="hover:cursor-pointer p-4 text-right flex items-center w-max rounded-md text-xs text-gray-500"
-            >
-              {tab.id > 1 && (
-                <>
-                  <ChevronLeftIcon className="mr-2 w-4 h-4" />
-                  Preview
-                </>
-              )}
-            </div><div
-              onClick={handleClickedMore}
-              className="hover:cursor-pointer p-4 w-max text-left flex items-center rounded-md text-xs text-gray-300"
-            >
-              {tab.id !== dataLength && (
-                <>
-                  Next <ChevronRightIcon className="ml-2 w-4 h-4" />
-                </>
-              )}
-            </div></div>
+            <div className="flex flex-row items-center justify-around md:hidden">
+              <div
+                onClick={handleClickedLess}
+                className="flex w-max items-center rounded-md p-4 text-right text-xs text-gray-500 hover:cursor-pointer"
+              >
+                {tab.id > 1 && (
+                  <>
+                    <ChevronLeftIcon className="mr-2 h-4 w-4" />
+                    Preview
+                  </>
+                )}
+              </div>
+              <div
+                onClick={handleClickedMore}
+                className="flex w-max items-center rounded-md p-4 text-left text-xs text-gray-300 hover:cursor-pointer"
+              >
+                {tab.id !== dataLength && (
+                  <>
+                    Next <ChevronRightIcon className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* STATS */}
-          <div className="w-full md:min-w-[60%] flex bg-gray-600 bg-opacity-10 border border-gray-700 rounded-3xl shadow-blur py-3 md:py-6 px-5 md:px-10 flex-wrap md:flex-row items-center justify-start md:justify-center gap-y-4 gap-x-5 md:gap-x-20 md:mt-6">
+          <div className="flex w-full flex-wrap items-center justify-start gap-y-4 gap-x-5 rounded-3xl border border-gray-700 bg-gray-600 bg-opacity-10 py-3 px-5 shadow-blur md:mt-6 md:min-w-[60%] md:flex-row md:justify-center md:gap-x-20 md:py-6 md:px-10">
             {tab.series && (
               <div className="flex flex-row items-center justify-start gap-2 md:gap-4">
-                <div className="p-3 mb-2 border border-white rounded-full">
-                  <ArrowPathIcon className="w-4 md:w-7 h-4 md:h-7" />
+                <div className="mb-2 rounded-full border border-white p-3">
+                  <ArrowPathIcon className="h-4 w-4 md:h-7 md:w-7" />
                 </div>
                 <div className="flex flex-col gap-1">
-                  {tab.series.map((item: { number: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; mesure: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; object: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }, index: Key | null | undefined) => (
-                    <div
-                      key={index}
-                      className={ctl(
-                        `flex gap-1 ${
-                          tab.series.length > 1 ? "flex-row" : "flex-col"
-                        } `
-                      )}
-                    >
-                      <span className="text-accent text-sm md:text-lg font-bold leading-4">
-                        {item?.number} {item?.mesure}
-                      </span>
-                      <span className="text-xs md:text-sm">{item?.object}</span>
-                    </div>
-                  ))}
+                  {tab.series.map(
+                    (
+                      item: {
+                        number:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                        mesure:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                        object:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                      },
+                      index: Key | null | undefined
+                    ) => (
+                      <div
+                        key={index}
+                        className={ctl(
+                          `flex gap-1 ${
+                            tab.series.length > 1 ? "flex-row" : "flex-col"
+                          } `
+                        )}
+                      >
+                        <span className="text-sm font-bold leading-4 text-accent md:text-lg">
+                          {item?.number} {item?.mesure}
+                        </span>
+                        <span className="text-xs md:text-sm">
+                          {item?.object}
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             )}
             {tab.repetition && (
-              <div className="hidden md:flex flex-row items-center justify-start gap-2 md:gap-4">
-                <div className="p-3 mb-2 border border-white rounded-full">
-                  <FireIcon className="w-4 md:w-7 h-4 md:h-7" />
+              <div className="hidden flex-row items-center justify-start gap-2 md:flex md:gap-4">
+                <div className="mb-2 rounded-full border border-white p-3">
+                  <FireIcon className="h-4 w-4 md:h-7 md:w-7" />
                 </div>
                 <div className="flex flex-col gap-1">
-                  {tab.repetition.map((item: { number: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; mesure: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; object: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }, index: Key | null | undefined) => (
-                    <div
-                      key={index}
-                      className={ctl(
-                        `flex max-w-[14rem] gap-1 ${
-                          tab.repetition.length > 1 ? "flex-row" : "flex-col"
-                        } `
-                      )}
-                    >
-                      <span className="text-accent text-sm md:text-lg font-bold leading-4">
-                        {item?.number} {item?.mesure}
-                      </span>
-                      <span className="text-xs md:text-sm">{item?.object}</span>
-                    </div>
-                  ))}
+                  {tab.repetition.map(
+                    (
+                      item: {
+                        number:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                        mesure:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                        object:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                      },
+                      index: Key | null | undefined
+                    ) => (
+                      <div
+                        key={index}
+                        className={ctl(
+                          `flex max-w-[14rem] gap-1 ${
+                            tab.repetition.length > 1 ? "flex-row" : "flex-col"
+                          } `
+                        )}
+                      >
+                        <span className="text-sm font-bold leading-4 text-accent md:text-lg">
+                          {item?.number} {item?.mesure}
+                        </span>
+                        <span className="text-xs md:text-sm">
+                          {item?.object}
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             )}
             {tab.duration && (
               <div className="flex flex-row items-center justify-start gap-2 md:gap-4">
-                <div className="p-3 mb-2 border border-white rounded-full">
-                  <ClockIcon className="w-4 md:w-7 h-4 md:h-7" />
+                <div className="mb-2 rounded-full border border-white p-3">
+                  <ClockIcon className="h-4 w-4 md:h-7 md:w-7" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-accent text-sm md:text-lg font-bold leading-4">
+                  <span className="text-sm font-bold leading-4 text-accent md:text-lg">
                     {tab.duration?.time} {tab.duration?.mesure}
                   </span>
-                  <span className="text-xs md:text-sm">{tab.duration?.object}</span>
+                  <span className="text-xs md:text-sm">
+                    {tab.duration?.object}
+                  </span>
                 </div>
               </div>
             )}
             {tab.rest && (
               <div className="flex flex-row items-center justify-start gap-2 md:gap-4">
-                <div className="p-3 mb-2 border border-white rounded-full">
-                  <SunIcon className="w-4 md:w-7 h-4 md:h-7" />
+                <div className="mb-2 rounded-full border border-white p-3">
+                  <SunIcon className="h-4 w-4 md:h-7 md:w-7" />
                 </div>
-                <div className="flex flex-col min-w-max">
-                  <span className="text-accent text-sm md:text-lg font-bold leading-4">
+                <div className="flex min-w-max flex-col">
+                  <span className="text-sm font-bold leading-4 text-accent md:text-lg">
                     {tab.rest?.time} {tab.rest?.mesure}
                   </span>
                   <span className="text-xs md:text-sm">{tab.rest?.object}</span>
@@ -180,26 +280,70 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
               </div>
             )}
             {tab.repetition && (
-              <div className="flex md:hidden flex-row items-center justify-start gap-2 md:gap-4">
-                <div className="p-3 mb-2 border border-white rounded-full">
-                  <FireIcon className="w-4 md:w-7 h-4 md:h-7" />
+              <div className="flex flex-row items-center justify-start gap-2 md:hidden md:gap-4">
+                <div className="mb-2 rounded-full border border-white p-3">
+                  <FireIcon className="h-4 w-4 md:h-7 md:w-7" />
                 </div>
                 <div className="flex flex-col gap-1">
-                  {tab.repetition.map((item: { number: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; mesure: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; object: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }, index: Key | null | undefined) => (
-                    <div
-                      key={index}
-                      className={ctl(
-                        `flex max-w-[14rem] gap-1 ${
-                          tab.repetition.length > 1 ? "flex-row" : "flex-col"
-                        } `
-                      )}
-                    >
-                      <span className="text-accent text-sm md:text-lg font-bold leading-4">
-                        {item?.number} {item?.mesure}
-                      </span>
-                      <span className="text-xs md:text-sm">{item?.object}</span>
-                    </div>
-                  ))}
+                  {tab.repetition.map(
+                    (
+                      item: {
+                        number:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                        mesure:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                        object:
+                          | string
+                          | number
+                          | boolean
+                          | ReactElement<
+                              any,
+                              string | JSXElementConstructor<any>
+                            >
+                          | ReactFragment
+                          | ReactPortal
+                          | null
+                          | undefined;
+                      },
+                      index: Key | null | undefined
+                    ) => (
+                      <div
+                        key={index}
+                        className={ctl(
+                          `flex max-w-[14rem] gap-1 ${
+                            tab.repetition.length > 1 ? "flex-row" : "flex-col"
+                          } `
+                        )}
+                      >
+                        <span className="text-sm font-bold leading-4 text-accent md:text-lg">
+                          {item?.number} {item?.mesure}
+                        </span>
+                        <span className="text-xs md:text-sm">
+                          {item?.object}
+                        </span>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             )}
@@ -211,8 +355,8 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
           )}
 
           {/* IMAGE & TIMER */}
-          <div className="w-full md:w-3/5 md:min-w-[60%] flex flex-col md:flex-row md:justify-around items-center md:items-start">
-          <div className="hidden md:flex relative w-full md:w-96 h-36 md:h-52 bg-amber-100 object-center mt-6 object-cover overflow-hidden">
+          <div className="flex w-full flex-col items-center md:w-3/5 md:min-w-[60%] md:flex-row md:items-start md:justify-around">
+            <div className="relative mt-6 hidden h-36 w-full overflow-hidden bg-amber-100 object-cover object-center md:flex md:h-52 md:w-96">
               <Image
                 src={tab?.image?.src}
                 quality={100}
@@ -222,7 +366,7 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
 
             {(tab.duration?.time || tab.rest) && (
               <>
-                <div className="flex flex-row w-full justify-center md:w-auto -mt-6 md:mt-0">
+                <div className="-mt-6 flex w-full flex-row justify-center md:mt-0 md:w-auto">
                   {tab.duration?.time && (
                     <Timer
                       time={tab.duration?.time}
@@ -236,7 +380,7 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
               </>
             )}
 
-<div className="flex md:hidden relative w-full md:w-96 h-36 md:h-52 bg-amber-100 object-center mt-36 object-cover overflow-hidden">
+            <div className="relative mt-36 flex h-36 w-full overflow-hidden bg-amber-100 object-cover object-center md:hidden md:h-52 md:w-96">
               <Image
                 src={tab?.image?.src}
                 quality={100}
@@ -249,7 +393,7 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
 
       {/* TAB NAV */}
       <div className="relative">
-        <div className="flex justify-center gap-1 md:gap-2 items-center mb-4 md:mb-0">
+        <div className="mb-4 flex items-center justify-center gap-1 md:mb-0 md:gap-2">
           {tabs.map((tab, index) => (
             <div
               key={tab.name}
@@ -259,7 +403,7 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
             >
               <div
                 className={ctl(
-                  `text-[0.6rem] w-12 hidden md:flex justify-center mb-1 ${
+                  `mb-1 hidden w-12 justify-center text-[0.6rem] md:flex ${
                     tab.id === activeTab ? "text-accent" : "text-black"
                   } `
                 )}
@@ -267,7 +411,7 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
                 {index + 1} / {tabs.length}
               </div>
               <div
-                className={ctl(`w-3 md:w-12 md:rounded-none rounded-full h-1 items-center
+                className={ctl(`h-1 w-3 items-center rounded-full md:w-12 md:rounded-none
                     ${
                       tab.id === activeTab
                         ? "bg-accent "
