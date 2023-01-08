@@ -12,6 +12,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Collapse } from "@components/Collapse/Collapse";
 import Timer from "@components/Timer/Timer";
+import Image from "next/image";
 
 export type TabsProps = {
   tabs: Record<string, any>;
@@ -52,11 +53,11 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
             }`
           )}
         >
-          {/* PREV / PLAY / NEXT */}
+          {/* PREV / TITLE / NEXT */}
           <div className="w-full flex justify-center items-center gap-12">
             <div
               onClick={handleClickedLess}
-              className="hover:cursor-pointer text-right flex items-center w-20 rounded-md text-xs text-gray-500"
+              className="hover:cursor-pointer p-4 text-right flex items-center w-max rounded-md text-xs text-gray-500"
             >
               {tab.id > 1 && (
                 <>
@@ -65,13 +66,13 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
                 </>
               )}
             </div>
-            <div className="relative text-center w-64 ">
+            <div className="relative text-center w-80   ">
               <h1 className="mb-1">{title}</h1>
-              <span className="text-accent uppercase">{tab.name}</span>
+              <h2 className="text-accent uppercase">{tab.name}</h2>
             </div>
             <div
               onClick={handleClickedMore}
-              className="hover:cursor-pointer w-20 text-left flex items-center rounded-md text-xs text-gray-300"
+              className="hover:cursor-pointer p-4 w-max text-left flex items-center rounded-md text-xs text-gray-300"
             >
               {tab.id !== dataLength && (
                 <>
@@ -81,7 +82,7 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
             </div>
           </div>
 
-          {/* NUMBER  */}
+          {/* STATS */}
           <div className="min-w-[60%] flex bg-gray-600 bg-opacity-10 border border-gray-700 rounded-3xl shadow-blur py-6 px-10 flex-row items-center justify-center gap-y-4 gap-x-20 mt-6 ">
             {tab.series && (
               <div className="flex flex-row items-center justify-start gap-4">
@@ -163,21 +164,56 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
           {tab.description && (
             <Collapse title={"Description"} content={tab.description} />
           )}
-          {tab.duration?.time && (
-            <Timer time={tab.duration?.time} title={tab.duration?.object} />
-          )}
-          {tab.rest && <Timer time={tab.rest?.time} title={tab.rest?.object} />}
+
+          {/* IMAGE & TIMER */}
+          <div className="w-3/5 min-w-[60%] flex justify-around items-start">
+            <div className="relative w-96 h-52 bg-amber-100 object-center mt-6 object-cover overflow-hidden">
+              <Image
+                src={tab?.image?.src}
+                quality={100}
+                alt={tab?.image?.title}
+              />
+            </div>
+
+            {(tab.duration?.time || tab.rest) && (
+              <>
+                <div className="flex flex-row">
+                  {tab.duration?.time && (
+                    <Timer
+                      time={tab.duration?.time}
+                      title={tab.duration?.object}
+                    />
+                  )}
+                  {tab.rest && (
+                    <Timer time={tab.rest?.time} title={tab.rest?.object} />
+                  )}
+                </div>
+              </>
+            )}
+          </div>
         </div>
       ))}
 
       {/* TAB NAV */}
       <div className="relative">
         <div className="flex justify-center gap-2 items-center">
-          {tabs.map((tab) => (
-            <div key={tab.name}>
+          {tabs.map((tab, index) => (
+            <div
+              key={tab.name}
+              href={tab.href}
+              onClick={() => setActiveTab(tab.id)}
+              className="hover:cursor-pointer"
+            >
               <div
-                href={tab.href}
-                onClick={() => setActiveTab(tab.id)}
+                className={ctl(
+                  `text-[0.6rem] w-12 flex justify-center mb-1 ${
+                    tab.id === activeTab ? "text-accent" : "text-black"
+                  } `
+                )}
+              >
+                {index + 1} / {tabs.length}
+              </div>
+              <div
                 className={ctl(`w-12 h-1 items-center
                     ${
                       tab.id === activeTab

@@ -43,7 +43,7 @@ export default function Timer({ time, title }: TimerProps) {
   }
 
   return (
-    <div className="relative flex justify-center mt-5 w-72">
+    <div className="relative flex justify-center mt-5 w-52">
       <div className="absolute top-20 mt-1 flex justify-center text-xl">
         <span>{minutes}</span>
         <span>:</span>
@@ -65,7 +65,7 @@ export default function Timer({ time, title }: TimerProps) {
         )}
         {timeLeft === 0 && (
           <button
-            className="absolute left-[50%] hover:cursor-pointer  uppercase top-10 font-bold -translate-x-[50%] bg-black px-5"
+            className="absolute left-[50%] hover:cursor-pointer py-4 uppercase top-6 font-bold -translate-x-[50%] bg-black px-5"
             onClick={resetTimer}
           >
             Replay

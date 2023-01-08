@@ -3,6 +3,8 @@ import stretching from "@assets/images/stretching.png";
 import session from "@assets/images/session.jpg";
 import mobility from "@assets/images/mobility.png";
 
+import seance01 from "@assets/images/seance/01.png";
+
 const datas = [
   {
     name: "Semaine 1 à Semaine 8",
@@ -10,6 +12,7 @@ const datas = [
       {
         name: "Échauffement",
         slug: "echauffement",
+        categorie: "Vertical Jump",
         series: 2,
         numberWork: 3,
         image: {
@@ -67,6 +70,7 @@ const datas = [
       {
         name: "Séance",
         slug: "seance",
+        categorie: "Vertical Jump",
         series: 1,
         numberWork: 13,
         image: {
@@ -100,8 +104,8 @@ const datas = [
               </>
             ),
             image: {
-              src: "",
-              title: "",
+              src: seance01,
+              title: "Cheverside",
             },
             video: {
               url: "",
@@ -712,6 +716,7 @@ const datas = [
       {
         name: "Étirements",
         slug: "etirements",
+        categorie: "Vertical Jump",
         series: 1,
         numberWork: 12,
         image: {
@@ -1013,6 +1018,7 @@ const datas = [
       {
         name: "Mobilité",
         slug: "mobilité",
+        categorie: "Vertical Jump",
         series: 1,
         numberWork: 5,
         image: {
