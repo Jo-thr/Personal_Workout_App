@@ -246,7 +246,7 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
 
             <div
               className={ctl(
-                `relative h-40 min-h-[10rem] w-full overflow-hidden rounded-3xl md:hidden ${
+                `relative h-48 min-h-[10rem] w-full overflow-hidden rounded-3xl md:hidden ${
                   tab.duration?.time || tab.rest ? "mt-36" : "mt-6"
                 }`
               )}
