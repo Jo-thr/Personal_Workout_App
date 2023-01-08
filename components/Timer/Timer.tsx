@@ -1,8 +1,6 @@
 //@ts-nocheck
 import { useRef, useState } from "react";
-import Pie from "./Pie";
-
-const root = document.querySelector("#root");
+import Pie, { MobilePie } from "./Pie";
 
 //Helper functions
 function padTime(time: number) {
@@ -43,14 +41,17 @@ export default function Timer({ time, title }: TimerProps) {
   }
 
   return (
-    <div className="relative flex justify-center mt-5 w-52">
+    <div className="relative flex justify-center -mt-2 md:mt-5 w-52">
       <div className="absolute top-20 mt-1 flex justify-center text-xl">
         <span>{minutes}</span>
         <span>:</span>
         <span>{seconds}</span>
       </div>
-      <div className="absolute flex justify-center top-0 w-full">
+      <div className="absolute hidden md:flex justify-center top-0 w-full">
         <Pie percentage={(timeLeft * 100) / time} colour="#BBF247" />
+      </div>
+      <div className="absolute flex md:hidden justify-center top-0 w-full">
+        <MobilePie percentage={(timeLeft * 100) / time} colour="#BBF247" />
       </div>
       <div className="relative mt-12 w-full buttons flex justify-between">
         {!isRunning && (
@@ -65,7 +66,7 @@ export default function Timer({ time, title }: TimerProps) {
         )}
         {timeLeft === 0 && (
           <button
-            className="absolute left-[50%] hover:cursor-pointer py-4 uppercase top-6 font-bold -translate-x-[50%] bg-black px-5"
+            className="absolute left-[50%] hover:cursor-pointer py-4 uppercase top-6 font-bold -translate-x-[50%] bg-black px-1 md:px-5"
             onClick={resetTimer}
           >
             Replay
