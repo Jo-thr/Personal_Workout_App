@@ -1,6 +1,3 @@
-import sessionImg from "@assets/images/session.jpg";
-import seance01 from "@assets/images/seance/01.png";
-
 const session = {
   name: "Séance",
   slug: "seance",
@@ -9,7 +6,7 @@ const session = {
   numberWork: 13,
   image: {
     title: "Session",
-    src: sessionImg,
+    src: "/images/session.jpg",
   },
   works: [
     {
@@ -127,7 +124,7 @@ const session = {
     },
     {
       id: 4,
-      name: "Explo Jump",
+      name: "Rope Jump",
       description: (
         <>
           Cet exercice de corde à sauter est très important et idéal à ce moment
@@ -163,7 +160,10 @@ const session = {
         title: "",
       },
       duration: { time: 90, mesure: "s", object: "travail" },
-      repetition: [{ number: 50, object: "répétitions de chaque côté" }],
+      repetition: [
+        { number: 10, object: "répétitions à Gauche" },
+        { number: 10, object: "répétitions à Droite" },
+      ],
       rest: { time: 30, mesure: "s", object: "repos" },
       series: [{ number: 4, object: "séries" }],
     },

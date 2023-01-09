@@ -1,14 +1,12 @@
-import mobilityImg from "@assets/images/mobility.png";
-
 const mobility = {
   name: "Mobilité",
-  slug: "mobilité",
+  slug: "mobilite",
   categorie: "Vertical Jump",
   series: 1,
   numberWork: 5,
   image: {
     title: "mobility",
-    src: mobilityImg,
+    src: "/images/mobility.png",
   },
   works: [
     {

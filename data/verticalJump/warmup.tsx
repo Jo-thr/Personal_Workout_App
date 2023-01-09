@@ -1,5 +1,3 @@
-import warmupImg from "@assets/images/warmup.jpg";
-
 const warmup = {
   name: "Échauffement",
   slug: "echauffement",
@@ -8,7 +6,7 @@ const warmup = {
   numberWork: 3,
   image: {
     title: "warm-up",
-    src: warmupImg,
+    src: "/images/warmup.jpg",
   },
   works: [
     {

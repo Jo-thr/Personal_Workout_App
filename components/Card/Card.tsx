@@ -10,13 +10,16 @@ export const Card = ({ data }: CardProps) => {
   return (
     <Link href={data.slug}>
       <div className="group relative flex h-36 w-full flex-col justify-end overflow-hidden rounded-lg shadow-blur hover:cursor-pointer md:h-52 md:w-[500px]">
-        <div className="absolute bottom-0 z-0 h-2/3 w-full bg-gradient-to-t from-gray-800 to-transparent" />
+        <div className="absolute bottom-0 z-10 h-2/3 w-full bg-gradient-to-t from-gray-800 to-transparent mix-blend-multiply" />
 
-        <div className="aboslute bottom-0 w-full object-cover object-bottom transition-all duration-500 group-hover:-ml-[5%] group-hover:w-[110%]">
-          <Image
-            src={data?.image?.src}
-            quality={100}
-            alt={data?.image?.title}
+        <div className="relative h-full w-full  transition-all duration-500 group-hover:-ml-[5%] group-hover:w-[110%]">
+          <div
+            style={{
+              backgroundImage: data?.image?.src
+                ? `url("${data?.image?.src}")`
+                : `url("https://aandacht.be/wp-content/uploads/placeholder-2.png")`,
+            }}
+            className="h-full w-full bg-cover bg-bottom bg-no-repeat object-cover"
           />
         </div>
         <div className="absolute z-10 flex w-full flex-row items-end justify-between p-4 text-white">

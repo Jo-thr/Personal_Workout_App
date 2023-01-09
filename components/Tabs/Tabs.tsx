@@ -119,7 +119,9 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
                       key={index}
                       className={ctl(
                         `flex gap-1 ${
-                          tab.series.length > 1 ? "flex-row" : "flex-col"
+                          tab.series.length > 1
+                            ? "flex-row items-center"
+                            : "flex-col items-start"
                         } `
                       )}
                     >
@@ -142,8 +144,10 @@ export const Tabs = ({ tabs, title }: TabsProps) => {
                     <div
                       key={index}
                       className={ctl(
-                        `flex max-w-[14rem] gap-1 ${
-                          tab.repetition.length > 1 ? "flex-row" : "flex-col"
+                        `flex max-w-[14rem]  gap-1 ${
+                          tab.repetition.length > 1
+                            ? "flex-row items-center"
+                            : "flex-col items-start"
                         } `
                       )}
                     >

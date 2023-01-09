@@ -1,5 +1,3 @@
-import stretchingImg from "@assets/images/stretching.png";
-
 const stretching = {
   name: "Étirements",
   slug: "etirements",
@@ -8,7 +6,7 @@ const stretching = {
   numberWork: 12,
   image: {
     title: "stretching",
-    src: stretchingImg,
+    src: "/images/stretching.png",
   },
   works: [
     {
