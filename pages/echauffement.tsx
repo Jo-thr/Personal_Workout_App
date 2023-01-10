@@ -8,8 +8,6 @@ import { Step } from "@components/Tabs/Step";
 export default function WarmupPage() {
   const data = datas.warmup;
 
-  console.log(data);
-
   return (
     <>
       <div className="flex h-screen w-full flex-col items-center justify-center overflow-hidden">

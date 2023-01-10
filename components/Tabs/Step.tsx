@@ -113,9 +113,20 @@ export const Step = ({ tabs, title }: StepProps) => {
             />
           </div>
           {/* BOTTOM INFORMATIONS */}
-          <div className="relative flex h-1/2 w-full flex-col items-center justify-between bg-black p-10">
+          <div className="relative flex h-1/2 w-full flex-col items-center justify-between bg-black px-10 pb-10">
             {/* TIMER */}
-            <div className="h-52 w-52 rounded-full border-[1rem] border-primary " />
+            <div className="relative flex h-52 w-52">
+              {tab.duration?.time && (
+                <div className="flex h-52 w-52 min-w-[13rem] items-center justify-center rounded-full border-[1rem] border-primary text-4xl font-extrabold text-white">
+                  {tab.duration?.time}
+                </div>
+              )}
+              {tab.rest && (
+                <div className="flex h-52 w-52 min-w-[13rem] items-center justify-center rounded-full border-[1rem] border-primary text-4xl font-extrabold text-white">
+                  {tab.rest.time}
+                </div>
+              )}
+            </div>
             {/* STATS */}
             <div className="flex w-full flex-row flex-wrap items-center justify-center gap-3">
               {tab.repetition && (
