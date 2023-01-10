@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 
 const THEME_COLORS = {
-  primary: "#0123FF",
-  black: "#1C1C1C",
-  accent: "#BBF247",
+  primary: "#5856FF",
+  black: "#000000",
+  "lighten-gray": "#787A8D",
+  "light-gray": "#3A3B49",
+  gray: "#292934",
+  "dark-gray": "#17171C",
 };
 
 module.exports = {

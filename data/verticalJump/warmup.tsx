@@ -14,7 +14,7 @@ const warmup = {
       name: "Course",
       description: "",
       image: {
-        src: "",
+        src: "/images/entrainements/running.jpg",
         title: "Image",
       },
       video: {
@@ -29,22 +29,32 @@ const warmup = {
       name: "Talons aux fesses",
       description: "",
       image: {
-        src: "",
+        src: "/images/entrainements/fesses.jpeg",
         title: "Image",
       },
       video: {
         url: "",
         title: "Video",
       },
+
+      duration: { time: 90, mesure: "s", object: "travail" },
+      repetition: [
+        { number: 10, object: "reps à Gauche" },
+        { number: 10, object: "reps à Droite" },
+      ],
+      rest: { time: 30, mesure: "s", object: "repos" },
+      series: [{ number: 4, object: "séries" }],
+      /*
       duration: { time: 15, mesure: "s", object: "travail" },
       series: [{ number: "2", object: "séries" }],
+       */
     },
     {
       id: 3,
       name: "Montées de genoux",
       description: "",
       image: {
-        src: "",
+        src: "/images/entrainements/genoux.jpeg",
         title: "Image",
       },
       video: {
