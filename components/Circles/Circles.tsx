@@ -8,17 +8,48 @@ const cleanPercentage = (percentage) => {
 };
 
 const Circle = ({ colour, pct }) => {
+  const r = 96;
+  const circ = 2 * Math.PI * r;
+  const strokePct = ((100 - pct) * circ) / 100;
+  return (
+    <circle
+      r={r}
+      cx={96}
+      cy={104}
+      fill="transparent"
+      stroke={strokePct !== circ ? colour : ""} // remove colour as 0% sets full circumference
+      strokeWidth={"0.7rem"}
+      strokeDasharray={circ}
+      strokeDashoffset={pct ? strokePct : 0}
+      strokeLinecap="round"
+    ></circle>
+  );
+};
+
+export const Circles = ({ percentage, colour }) => {
+  const pct = cleanPercentage(percentage);
+  return (
+    <svg className="h-full w-full">
+      <g transform={`rotate(-90 ${"100 100"})`}>
+        <Circle colour="#17171C" />
+        <Circle colour={colour} pct={pct} />
+      </g>
+    </svg>
+  );
+};
+
+const CircleMini = ({ colour, pct }) => {
   const r = 70;
   const circ = 2 * Math.PI * r;
   const strokePct = ((100 - pct) * circ) / 100;
   return (
     <circle
       r={r}
-      cx={100}
-      cy={100}
+      cx={98}
+      cy={84}
       fill="transparent"
       stroke={strokePct !== circ ? colour : ""} // remove colour as 0% sets full circumference
-      strokeWidth={"0.6rem"}
+      strokeWidth={"0.7rem"}
       strokeDasharray={circ}
       strokeDashoffset={pct ? strokePct : 0}
       strokeLinecap="round"
@@ -26,47 +57,14 @@ const Circle = ({ colour, pct }) => {
   );
 };
 
-const MobileCircle = ({ colour, pct }) => {
-  const r = 50;
-  const circ = 2 * Math.PI * r;
-  const strokePct = ((100 - pct) * circ) / 100;
-  return (
-    <circle
-      r={r}
-      cx={100}
-      cy={60}
-      fill="transparent"
-      stroke={strokePct !== circ ? colour : ""} // remove colour as 0% sets full circumference
-      strokeWidth={"0.4rem"}
-      strokeDasharray={circ}
-      strokeDashoffset={pct ? strokePct : 0}
-      strokeLinecap="round"
-    ></circle>
-  );
-};
-
-const Pie = ({ percentage, colour }) => {
+export const DoubleCircles = ({ percentage, colour }) => {
   const pct = cleanPercentage(percentage);
   return (
-    <svg width={200} height={200} className="">
+    <svg className="relative flex h-full w-[10.5rem] items-center justify-center">
       <g transform={`rotate(-90 ${"100 100"})`}>
-        <Circle colour="rgb(75 85 99)" />
-        <Circle colour="#BBF247" pct={pct} />
+        <CircleMini colour="#17171C" />
+        <CircleMini colour={colour} pct={pct} />
       </g>
     </svg>
   );
 };
-
-export const MobilePie = ({ percentage, colour }) => {
-  const pct = cleanPercentage(percentage);
-  return (
-    <svg width={120} height={155} className="">
-      <g transform={`rotate(-90 ${"100 100"})`}>
-        <MobileCircle colour="rgb(75 85 99)" />
-        <MobileCircle colour="#BBF247" pct={pct} />
-      </g>
-    </svg>
-  );
-};
-
-export default Pie;

@@ -92,11 +92,11 @@ const mobility = {
       repetition: [
         {
           number: 10,
-          object: "répétitions à Gauche",
+          object: "reps à Gauche",
         },
         {
           number: 10,
-          object: "répétitions à Droite",
+          object: "reps à Droite",
         },
       ],
       series: [{ number: 1, object: "séries" }],
@@ -148,7 +148,7 @@ const mobility = {
         url: "",
         title: "",
       },
-      repetition: [{ number: 5, object: "répétitions sur chaque pied" }],
+      repetition: [{ number: 5, object: "reps sur chaque pied" }],
       series: [{ number: 4, object: "séries" }],
     },
   ],

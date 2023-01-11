@@ -119,7 +119,7 @@ const session = {
         url: "",
         title: "",
       },
-      repetition: [{ number: 15, object: "répétitions de chaque côté" }],
+      repetition: [{ number: 15, object: "reps de chaque côté" }],
       series: [{ number: 4, object: "séries" }],
     },
     {
@@ -161,8 +161,8 @@ const session = {
       },
       duration: { time: 90, mesure: "s", object: "travail" },
       repetition: [
-        { number: 10, object: "répétitions à Gauche" },
-        { number: 10, object: "répétitions à Droite" },
+        { number: 10, object: "reps à Gauche" },
+        { number: 10, object: "reps à Droite" },
       ],
       rest: { time: 30, mesure: "s", object: "repos" },
       series: [{ number: 4, object: "séries" }],
@@ -206,7 +206,7 @@ const session = {
       repetition: [
         {
           number: 10,
-          object: "répétitions de chaque côtés",
+          object: "reps de chaque côtés",
         },
         {
           number: 10,
@@ -285,7 +285,7 @@ const session = {
         url: "",
         title: "",
       },
-      duration: { time: 60, mesure: "s", object: "repos" },
+      rest: { time: 60, mesure: "s", object: "repos" },
     },
     {
       id: 8,
@@ -317,7 +317,7 @@ const session = {
         url: "",
         title: "",
       },
-      repetition: [{ number: 5, object: "répétitions de chaque côtés" }],
+      repetition: [{ number: 5, object: "reps de chaque côtés" }],
       rest: { time: 30, mesure: "s", object: "repos" },
       series: [{ number: 4, object: "séries" }],
     },
@@ -332,7 +332,7 @@ const session = {
         url: "",
         title: "",
       },
-      duration: { time: 180, mesure: "s", object: "repos" },
+      rest: { time: 180, mesure: "s", object: "repos" },
     },
     {
       id: 10,
@@ -373,7 +373,7 @@ const session = {
       repetition: [
         {
           number: 30,
-          object: "répétitions de chaque côtés",
+          object: "reps de chaque côtés",
         },
         {
           number: 1,
@@ -496,7 +496,7 @@ const session = {
         url: "",
         title: "",
       },
-      duration: { time: 180, mesure: "s", object: "repos" },
+      rest: { time: 180, mesure: "s", object: "repos" },
     },
     {
       id: 14,
@@ -536,7 +536,7 @@ const session = {
         url: "",
         title: "",
       },
-      duration: { time: 60, mesure: "s", object: "repos" },
+      rest: { time: 60, mesure: "s", object: "repos" },
     },
     {
       id: 16,
@@ -589,7 +589,7 @@ const session = {
         url: "",
         title: "",
       },
-      duration: { time: 60, mesure: "s", object: "repos" },
+      rest: { time: 60, mesure: "s", object: "repos" },
     },
     {
       id: 18,
