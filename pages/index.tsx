@@ -1,7 +1,5 @@
 import datas from "@data/datas";
 import { Card } from "@components/Card/Card";
-import Link from "next/link";
-import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
 
 export default function Home() {
   return (

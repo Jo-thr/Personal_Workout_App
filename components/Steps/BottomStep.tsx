@@ -1,6 +1,5 @@
 //@ts-nocheck
-import Chrono from "@components/Chrono/Chrono";
-import { Circles, DoubleCircles } from "@components/Chrono/Circles";
+import { Circles, DoubleCircles } from "@components/Circles/Circles";
 import { Stats } from "@components/Stats/Stats";
 import {
   ArrowPathIcon,
@@ -34,7 +33,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
   const percentage = (timeLeft * 100) / WorkTime;
 
   const restMinutes = padTime(Math.floor(restTimeLeft / 60));
-  const restSeconds = padTime(restTimeLeft - minutes * 60);
+  const restSeconds = padTime(restTimeLeft - restMinutes * 60);
   const restPercentage = (restTimeLeft * 100) / RestTime;
 
   function startWorkTimer() {
@@ -111,7 +110,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
             ) : (
               <Circles percentage={percentage} colour="#5856FF" />
             )}
-            <div className="absolute top-14 mt-2 flex justify-center text-sm text-primary">
+            <div className="absolute top-14 mt-3 flex justify-center text-xs !text-primary">
               {tab.duration.object}
             </div>
           </div>
@@ -142,7 +141,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
             ) : (
               <Circles percentage={restPercentage} colour="#65B1AD" />
             )}
-            <div className="absolute top-14 mt-2 flex justify-center text-sm text-secondary">
+            <div className="absolute top-14 mt-3 flex justify-center text-xs !text-secondary">
               {tab.rest.object}
             </div>
           </div>
@@ -188,7 +187,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
             className={ctl(
               `flex h-10 w-full items-center justify-center gap-2 rounded-lg text-sm font-extrabold text-white
       ${
-        tab.duration.time > timeLeft && timeLeft > 0 ? "bg-gray" : "bg-primary"
+        tab.duration.time > timeLeft && timeLeft > 0 ? "bg-gray" : "!bg-primary"
       }`
             )}
           >
@@ -217,7 +216,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
       ${
         tab.rest.time > restTimeLeft && restTimeLeft > 0
           ? "bg-gray"
-          : "bg-secondary"
+          : "!bg-secondary"
       }`
             )}
           >

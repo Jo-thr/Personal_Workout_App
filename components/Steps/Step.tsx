@@ -1,6 +1,6 @@
 //@ts-nocheck
 import cn from "clsx";
-import { Key, useState } from "react";
+import { useState } from "react";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
@@ -64,13 +64,13 @@ export const Step = ({ tabs }: StepProps) => {
                   )}
                 </div>
                 {/* TITLE - SERIES */}
-                <div className="flex flex-col items-center">
-                  <h2 className="uppercase">{tab.name}</h2>
-                  <h4>
-                    {tab.series.map((item, index) => (
+                <div className="flex flex-col items-center ">
+                  <h2 className="text-center uppercase">{tab.name}</h2>
+                  <h4 className="text-center">
+                    {tab?.series?.map((item, index) => (
                       <div
                         key={index}
-                        className="flex flex-row items-center gap-1"
+                        className="flex flex-row items-center justify-center gap-1"
                       >
                         <span className="text-xs font-extrabold text-lighten-gray">
                           {item?.number} {item?.mesure} {item?.object}
