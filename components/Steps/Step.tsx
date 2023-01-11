@@ -1,25 +1,17 @@
 //@ts-nocheck
-import ctl from "@netlify/classnames-template-literals";
 import cn from "clsx";
 import { Key, useState } from "react";
-import {
-  ChevronRightIcon,
-  ChevronLeftIcon,
-  ClockIcon,
-  SunIcon,
-  ArrowPathIcon,
-  FireIcon,
-} from "@heroicons/react/24/outline";
-import { ArrowLeftCircleIcon, PlayCircleIcon } from "@heroicons/react/24/solid";
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
+import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { Stats } from "./Stats";
+import { BottomStep } from "./BottomStep";
 
 export type StepProps = {
   tabs: Record<string, any>[];
   title: string;
 };
 
-export const Step = ({ tabs, title }: StepProps) => {
+export const Step = ({ tabs }: StepProps) => {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   const dataLength = tabs?.length;
@@ -114,55 +106,7 @@ export const Step = ({ tabs, title }: StepProps) => {
           </div>
           {/* BOTTOM INFORMATIONS */}
           <div className="relative flex h-1/2 w-full flex-col items-center justify-between bg-black px-10 pb-10">
-            {/* TIMER */}
-            <div className="relative flex h-52 w-52">
-              {tab.duration?.time && (
-                <div className="flex h-52 w-52 min-w-[13rem] items-center justify-center rounded-full border-[1rem] border-primary text-4xl font-extrabold text-white">
-                  {tab.duration?.time}
-                </div>
-              )}
-              {tab.rest && (
-                <div className="flex h-52 w-52 min-w-[13rem] items-center justify-center rounded-full border-[1rem] border-primary text-4xl font-extrabold text-white">
-                  {tab.rest.time}
-                </div>
-              )}
-            </div>
-            {/* STATS */}
-            <div className="flex w-full flex-row flex-wrap items-center justify-center gap-3">
-              {tab.repetition && (
-                <>
-                  {tab.repetition.map((item, index) => (
-                    <Stats
-                      key={index}
-                      object={item?.object}
-                      icon={"fire"}
-                      number={item?.number}
-                      mesure={item?.mesure}
-                    />
-                  ))}
-                </>
-              )}
-              {tab.duration && (
-                <Stats
-                  object={tab.duration?.object}
-                  icon={"time"}
-                  number={tab.duration?.time}
-                  mesure={tab.duration?.mesure}
-                />
-              )}
-              {tab.rest && (
-                <Stats
-                  object={tab.rest?.object}
-                  icon={"rest"}
-                  number={tab.rest?.time}
-                  mesure={tab.rest?.mesure}
-                />
-              )}
-            </div>
-            {/* BUTTON */}
-            <div className="flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-primary text-sm font-extrabold text-white">
-              START <PlayCircleIcon className="h-5 w-5" />
-            </div>
+            <BottomStep tab={tab} />
           </div>
         </div>
       ))}
