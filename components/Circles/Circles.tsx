@@ -29,7 +29,7 @@ const Circle = ({ colour, pct }) => {
 export const Circles = ({ percentage, colour }) => {
   const pct = cleanPercentage(percentage);
   return (
-    <svg className="h-full w-full">
+    <svg className="relative flex h-full w-52 items-center justify-center">
       <g transform={`rotate(-90 ${"100 100"})`}>
         <Circle colour="#17171C" />
         <Circle colour={colour} pct={pct} />

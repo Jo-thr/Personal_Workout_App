@@ -85,7 +85,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
         {tab?.duration?.time && (
           <div
             onClick={timeLeft === 0 ? resetWorkTimer : startWorkTimer}
-            className="relative mx-auto flex h-full w-52 min-w-[50%] items-center justify-center text-white hover:cursor-pointer"
+            className="relative mx-auto flex h-full w-52 min-w-[50%] items-center justify-center  text-white hover:cursor-pointer"
           >
             <div className="absolute top-20 mt-1 flex items-center justify-center text-4xl font-extrabold">
               {timeLeft === tab.duration.time && (
@@ -104,7 +104,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
               )}
             </div>
             {tab.duration?.time && tab.rest?.time ? (
-              <div className="relative flex h-full w-full items-center justify-center">
+              <div className="relative flex h-full w-full items-center justify-center ">
                 <DoubleCircles percentage={percentage} colour="#5856FF" />
               </div>
             ) : (
