@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <div className="flex h-screen w-full flex-col items-center">
         {/* TOP INFORMATIONS */}
-        <div className="relative flex h-1/2 w-full bg-orange-100">
+        <div className="relative flex h-1/2 w-full">
           {/* INFO */}
           <div className="absolute bottom-0 z-20 flex w-full items-center text-white">
             <div className="flex w-full flex-row items-center justify-center">

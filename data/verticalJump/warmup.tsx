@@ -36,18 +36,8 @@ const warmup = {
         url: "",
         title: "Video",
       },
-
-      duration: { time: 20, mesure: "s", object: "travail" },
-      repetition: [
-        { number: 10, object: "reps à Gauche" },
-        { number: 10, object: "reps à Droite" },
-      ],
-      rest: { time: 10, mesure: "s", object: "repos" },
-      series: [{ number: 4, object: "séries" }],
-      /*
-      duration: { time: 15, mesure: "s", object: "travail" },
+      rest: { time: 15, mesure: "s", object: "repos" },
       series: [{ number: 1, object: "série" }],
-       */
     },
     {
       id: 3,
