@@ -2,6 +2,7 @@
 
 const THEME_COLORS = {
   primary: "#5856FF",
+  secondary: "#65B1AD",
   black: "#000000",
   "lighten-gray": "#787A8D",
   "light-gray": "#3A3B49",

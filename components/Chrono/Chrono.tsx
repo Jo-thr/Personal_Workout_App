@@ -10,10 +10,10 @@ function padTime(time: number) {
 export type ChronoProps = {
   time?: number;
   title?: string;
-  play?: boolean;
+  couleur?: string;
 };
 
-export default function Chrono({ time, title, play }: ChronoProps) {
+export default function Chrono({ time, title, couleur }: ChronoProps) {
   const [timeLeft, setTimeLeft] = useState(time);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -57,7 +57,7 @@ export default function Chrono({ time, title, play }: ChronoProps) {
         )}
         {timeLeft === 0 && <>Restart</>}
       </div>
-      <Circles percentage={percentage} colour="#5856FF" />
+      <Circles percentage={percentage} colour={couleur} />
       <div className="absolute top-14 mt-1 flex justify-center text-sm text-primary">
         {title}
       </div>
