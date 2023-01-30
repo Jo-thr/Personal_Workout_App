@@ -36,7 +36,7 @@ const warmup = {
         url: "",
         title: "Video",
       },
-      rest: { time: 15, mesure: "s", object: "repos" },
+      duration: { time: 15, mesure: "s", object: "travail" },
       series: [{ number: 1, object: "série" }],
     },
     {
