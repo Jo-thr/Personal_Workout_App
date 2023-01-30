@@ -9,8 +9,11 @@ export interface CardProps {
 
 export const Card = ({ data }: CardProps) => {
   return (
-    <Link href={data.slug} className="h-full w-full min-w-[14rem]">
-      <div className="group relative flex h-full w-full flex-col justify-end overflow-hidden rounded-lg border border-primary shadow-blur hover:cursor-pointer md:h-52 md:w-[500px]">
+    <Link
+      href={data.slug}
+      className="relative h-full w-full min-w-[14rem] overflow-hidden"
+    >
+      <div className=" group  relative flex h-full w-full flex-col justify-end overflow-hidden rounded-lg border border-primary shadow-blur hover:cursor-pointer md:h-64">
         <div className="absolute top-0 z-10 h-2/3 w-full bg-gradient-to-b from-black to-transparent mix-blend-multiply" />
 
         <div className="relative h-full w-full transition-all duration-500 group-hover:-ml-[5%] group-hover:w-[110%]">

@@ -37,13 +37,13 @@ export const Step = ({ tabs }: StepProps) => {
         <div
           key={tab.name}
           className={cn(
-            `h-screen w-full flex-col items-center justify-center overflow-hidden ${
+            `h-screen w-full flex-col items-center justify-center overflow-hidden md:flex-row ${
               tab.id === activeTab ? "flex" : "hidden"
             }`
           )}
         >
           {/* TOP INFORMATIONS */}
-          <div className="relative flex h-1/2 w-full bg-orange-100">
+          <div className="relative flex h-1/2 w-full bg-orange-100 md:h-full md:w-1/2">
             {/* BACK HOME */}
             <Link
               href="/"
@@ -52,7 +52,7 @@ export const Step = ({ tabs }: StepProps) => {
               <ArrowLeftCircleIcon className="h-8 w-8" />
             </Link>
             {/* INFO */}
-            <div className="absolute bottom-0 z-20 flex w-full items-center p-10 text-white">
+            <div className="absolute bottom-0 z-20 flex w-full items-center p-10 text-white md:hidden">
               <div className="flex w-full flex-row items-center justify-between">
                 {/* PREVIEW */}
                 <div
@@ -92,7 +92,8 @@ export const Step = ({ tabs }: StepProps) => {
             </div>
 
             {/* GRADIENT */}
-            <div className="absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-black to-transparent" />
+            <div className="absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-black to-transparent md:hidden" />
+            <div className="right-0 z-10 hidden h-screen w-40 bg-gradient-to-l from-black to-transparent md:absolute md:flex" />
 
             {/* BG IMAGE */}
             <div
@@ -105,7 +106,46 @@ export const Step = ({ tabs }: StepProps) => {
             />
           </div>
           {/* BOTTOM INFORMATIONS */}
-          <div className="relative flex h-1/2 w-full flex-col items-center justify-between bg-black px-10 pb-10">
+          <div className="relative flex h-1/2 w-full flex-col items-center justify-between bg-black px-10 pb-10 md:h-full md:w-1/2 md:py-40 md:px-28">
+            {/* INFO */}
+            <div className="absolute top-0 z-20 hidden w-full items-center p-10 text-white md:relative md:flex">
+              <div className="flex w-full flex-row items-center justify-between">
+                {/* PREVIEW */}
+                <div
+                  onClick={handleClickedLess}
+                  className="w-max items-center p-4 text-left text-xs hover:cursor-pointer"
+                >
+                  {tab.id > 1 && (
+                    <ChevronLeftIcon className="h-4 w-4 stroke-2" />
+                  )}
+                </div>
+                {/* TITLE - SERIES */}
+                <div className="flex flex-col items-center ">
+                  <h2 className="text-center uppercase">{tab.name}</h2>
+                  <h4 className="text-center">
+                    {tab?.series?.map((item, index) => (
+                      <div
+                        key={index}
+                        className="flex flex-row items-center justify-center gap-1"
+                      >
+                        <span className="text-xs font-extrabold text-lighten-gray">
+                          {item?.number} {item?.mesure} {item?.object}
+                        </span>
+                      </div>
+                    ))}
+                  </h4>
+                </div>
+                {/* NEXT */}
+                <div
+                  onClick={handleClickedMore}
+                  className="w-max items-center p-4 text-left text-xs hover:cursor-pointer"
+                >
+                  {tab.id !== dataLength && (
+                    <ChevronRightIcon className="h-4 w-4 stroke-2" />
+                  )}
+                </div>
+              </div>
+            </div>
             <BottomStep tab={tab} />
           </div>
         </div>

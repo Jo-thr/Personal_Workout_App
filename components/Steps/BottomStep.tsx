@@ -79,9 +79,9 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
   }
 
   return (
-    <>
+    <div className="flex h-full w-full flex-col justify-end gap-10 md:items-center md:justify-around">
       {/* TIMER */}
-      <div className="relative flex h-52 w-full ">
+      <div className="relative flex h-52 w-full  ">
         {tab?.duration?.time && (
           <div
             onClick={timeLeft === 0 ? resetWorkTimer : startWorkTimer}
@@ -185,7 +185,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
           <div
             onClick={timeLeft === 0 ? resetWorkTimer : startWorkTimer}
             className={ctl(
-              `flex h-10 w-full items-center justify-center gap-2 rounded-lg text-sm font-extrabold text-white
+              `flex h-10 w-full items-center justify-center gap-2 rounded-lg text-sm font-extrabold text-white md:h-14
       ${
         tab.duration.time > timeLeft && timeLeft > 0 ? "bg-gray" : "!bg-primary"
       }`
@@ -212,7 +212,7 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
           <div
             onClick={restTimeLeft === 0 ? resetRestTimer : startRestTimer}
             className={ctl(
-              `flex h-10 w-full items-center justify-center gap-2 rounded-lg text-sm font-extrabold text-white
+              `flex h-10 w-full items-center justify-center gap-2 rounded-lg text-sm font-extrabold text-white md:h-14
       ${
         tab.rest.time > restTimeLeft && restTimeLeft > 0
           ? "bg-gray"
@@ -238,6 +238,6 @@ export const BottomStep = ({ tab }: BottomStepProps) => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
