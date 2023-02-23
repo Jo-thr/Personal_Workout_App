@@ -39,8 +39,8 @@ const session = {
         title: "Cheverside",
       },
       video: {
-        url: "",
-        title: "",
+        url: "/video/01-Cheverside.mov",
+        title: "Cheverside",
       },
       repetition: [{ number: 50, object: "répétitions" }],
       rest: { time: 15, mesure: "s", object: "repos" },
@@ -83,8 +83,8 @@ const session = {
         title: "",
       },
       video: {
-        url: "",
-        title: "",
+        url: "/video/02-Tibia.mov",
+        title: "Delta Tibia",
       },
       repetition: [{ number: 30, object: "répétitions" }],
       rest: { time: 15, mesure: "s", object: "repos" },

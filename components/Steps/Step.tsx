@@ -5,6 +5,7 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import { ArrowLeftCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { BottomStep } from "./BottomStep";
+import Video from "@components/Video/Video";
 
 export type StepProps = {
   tabs: Record<string, any>[];
@@ -96,14 +97,20 @@ export const Step = ({ tabs }: StepProps) => {
             <div className="right-0 z-10 hidden h-screen w-40 bg-gradient-to-l from-black to-transparent md:absolute md:flex" />
 
             {/* BG IMAGE */}
-            <div
-              style={{
-                backgroundImage: tab?.image?.src
-                  ? `url("${tab?.image?.src}")`
-                  : `url("https://aandacht.be/wp-content/uploads/placeholder-2.png")`,
-              }}
-              className="relative z-0 h-full w-full bg-cover bg-bottom bg-no-repeat object-cover"
-            />
+            {tab.video.url ? (
+              <div className="relative z-0 h-full w-full bg-green-300">
+                <Video src={tab.video.url} />
+              </div>
+            ) : (
+              <div
+                style={{
+                  backgroundImage: tab?.image?.src
+                    ? `url("${tab?.image?.src}")`
+                    : `url("https://aandacht.be/wp-content/uploads/placeholder-2.png")`,
+                }}
+                className="relative z-0 h-full w-full bg-cover bg-bottom bg-no-repeat object-cover"
+              />
+            )}
           </div>
           {/* BOTTOM INFORMATIONS */}
           <div className="relative flex h-1/2 w-full flex-col items-center justify-between bg-black px-10 pb-10 md:h-full md:w-1/2 md:py-40 md:px-28">
