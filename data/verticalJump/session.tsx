@@ -38,10 +38,6 @@ const session = {
         src: "/gif/01-Cheverside.gif",
         title: "Cheverside",
       },
-      video: {
-        url: "",
-        title: "",
-      },
       repetition: [{ number: 50, object: "répétitions" }],
       rest: { time: 15, mesure: "s", object: "repos" },
       series: [{ number: 4, object: "séries" }],
@@ -82,10 +78,6 @@ const session = {
         src: "/gif/02-Tibia.gif",
         title: "Delta Tibia",
       },
-      video: {
-        url: "",
-        title: "",
-      },
       repetition: [{ number: 30, object: "répétitions" }],
       rest: { time: 15, mesure: "s", object: "repos" },
       series: [{ number: 4, object: "séries" }],
@@ -112,12 +104,8 @@ const session = {
         </>
       ),
       image: {
-        src: "",
-        title: "",
-      },
-      video: {
-        url: "",
-        title: "",
+        src: "/gif/03-Mollets.gif",
+        title: "Mollets",
       },
       repetition: [{ number: 15, object: "reps de chaque côté" }],
       series: [{ number: 4, object: "séries" }],
@@ -152,12 +140,8 @@ const session = {
         </>
       ),
       image: {
-        src: "",
-        title: "",
-      },
-      video: {
-        url: "",
-        title: "",
+        src: "/gif/04-Rope.gif",
+        title: "Rope",
       },
       duration: { time: 90, mesure: "s", object: "travail" },
       repetition: [
@@ -196,12 +180,8 @@ const session = {
         </>
       ),
       image: {
-        src: "",
-        title: "",
-      },
-      video: {
-        url: "",
-        title: "",
+        src: "/gif/05-Ischio.gif",
+        title: "Ischio",
       },
       repetition: [
         {

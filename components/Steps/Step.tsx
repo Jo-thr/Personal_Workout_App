@@ -151,6 +151,17 @@ export const Step = ({ tabs }: StepProps) => {
           </div>
         </div>
       ))}
+      <div className="absolute right-0 z-40 flex w-full flex-row items-center justify-center gap-1 md:bottom-12 md:w-1/2 ">
+        {tabs?.map((item, index) => (
+          <div
+            className={`flex h-2 w-2 rounded-full ${
+              index === activeTab - 1 ? "h-3 w-3 bg-primary" : "bg-gray"
+            }
+            ${index > activeTab - 1 && "bg-lighten-gray"}`}
+            key={index}
+          />
+        ))}
+      </div>
     </>
   );
 };
