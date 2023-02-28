@@ -35,12 +35,12 @@ const session = {
         </>
       ),
       image: {
-        src: "/images/seance/01.png",
+        src: "/gif/01-Cheverside.gif",
         title: "Cheverside",
       },
       video: {
-        url: "/video/01-Cheverside.mov",
-        title: "Cheverside",
+        url: "",
+        title: "",
       },
       repetition: [{ number: 50, object: "répétitions" }],
       rest: { time: 15, mesure: "s", object: "repos" },
@@ -79,12 +79,12 @@ const session = {
         </>
       ),
       image: {
-        src: "",
-        title: "",
+        src: "/gif/02-Tibia.gif",
+        title: "Delta Tibia",
       },
       video: {
-        url: "/video/02-Tibia.mov",
-        title: "Delta Tibia",
+        url: "",
+        title: "",
       },
       repetition: [{ number: 30, object: "répétitions" }],
       rest: { time: 15, mesure: "s", object: "repos" },
