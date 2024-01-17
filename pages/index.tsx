@@ -1,45 +1,37 @@
 import datas from "@data/datas";
-import { Card } from "@components/Card/Card";
+import { ChevronsRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      <div className="flex h-screen w-full flex-col items-center">
-        {/* TOP INFORMATIONS */}
-        <div className="relative flex h-1/2 w-full">
-          {/* INFO */}
-          <div className="absolute bottom-0 z-20 flex w-full items-center text-white">
-            <div className="flex w-full flex-row items-center justify-center">
-              {/* TITLE - SERIES */}
-              <div className="flex flex-col items-center">
-                <h2 className="uppercase">{datas.home.title}</h2>
-                <h4>{datas.home.subtitle}</h4>
+    <div className="flex h-screen w-full flex-col items-start p-6">
+      <div className="w-full border-b border-white-light py-2">
+        {datas.home.programTitle}
+      </div>
+      <div className="flex w-full flex-col gap-4 py-8">
+        {datas.home.works.map((work) => (
+          <Link
+            href={work.slug}
+            className="flex w-full flex-row items-center justify-between gap-4 rounded-lg bg-black-darken p-6"
+          >
+            <div className="flex flex-row items-center gap-4">
+              <div className="relative h-16 w-16 rounded-full bg-black-base p-4">
+                <Image src={work.picto} alt={work.title} />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span className="font-krona text-xs text-primary ">
+                  {work.categorie}
+                </span>
+                <h4 className="font-krona text-lg">{work.title}</h4>
               </div>
             </div>
-          </div>
-
-          {/* GRADIENT */}
-          <div className="absolute bottom-0 z-10 h-40 w-full bg-gradient-to-t from-black to-transparent" />
-
-          {/* BG IMAGE */}
-          <div
-            style={{
-              backgroundImage: datas.home?.image?.src
-                ? `url("${datas.home?.image?.src}")`
-                : `url("https://aandacht.be/wp-content/uploads/placeholder-2.png")`,
-            }}
-            className="relative z-0 h-full w-full bg-cover bg-bottom bg-no-repeat object-cover"
-          />
-        </div>
-
-        {/* BOTTOM INFORMATIONS */}
-        <div className="relative flex h-1/2 w-full flex-row gap-10 overflow-x-scroll bg-black px-24 py-16">
-          <Card data={datas.warmup} key={datas.warmup.name} />
-          <Card data={datas.session} key={datas.session.name} />
-          <Card data={datas.stretching} key={datas.stretching.name} />
-          <Card data={datas.mobility} key={datas.mobility.name} />
-        </div>
+            <button className="flex h-12 w-12 items-center justify-center rounded-md bg-primary p-2 text-black-base">
+              <ChevronsRight />
+            </button>
+          </Link>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
