@@ -1,13 +1,8 @@
+import Win from "@public/images/champion.jpg";
+
 const stretching = {
   name: "Étirements",
   slug: "etirements",
-  categorie: "Vertical Jump",
-  series: 1,
-  numberWork: 12,
-  image: {
-    title: "stretching",
-    src: "/images/stretching.png",
-  },
   works: [
     {
       id: 1,
@@ -23,12 +18,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque pied" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque pied",
     },
     {
       id: 2,
@@ -43,12 +34,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque pied" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque pied",
     },
     {
       id: 3,
@@ -66,12 +53,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque pied" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque pied",
     },
     {
       id: 4,
@@ -90,12 +73,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque jambe" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque jambe",
     },
     {
       id: 5,
@@ -111,10 +90,6 @@ const stretching = {
       ),
       image: {
         src: "",
-        title: "",
-      },
-      video: {
-        url: "",
         title: "",
       },
       duration: { time: 30, mesure: "s", object: "travail" },
@@ -143,12 +118,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque jambe" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque jambe",
     },
     {
       id: 7,
@@ -167,12 +138,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque jambe" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque jambe",
     },
     {
       id: 8,
@@ -190,12 +157,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque jambe" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque jambe",
     },
     {
       id: 9,
@@ -238,12 +201,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque jambe" },
-      series: [{ number: 3, object: "séries" }],
+      timer: 90,
+      object: "chaque jambe",
     },
     {
       id: 11,
@@ -259,12 +218,8 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: { time: 30, mesure: "s", object: "chaque jambe" },
-      series: [{ number: 3, object: "séries" }],
+      time: 90,
+      object: "chaque jambe",
     },
     {
       id: 12,
@@ -286,12 +241,17 @@ const stretching = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
+      timer: 900,
+    },
+
+    /* END */
+    {
+      id: 7,
+      name: "You're the boss !",
+      image: {
+        src: Win,
         title: "",
       },
-      duration: { time: 900, mesure: "s", object: "travail" },
-      series: [{ number: 1, object: "série" }],
     },
   ],
 };

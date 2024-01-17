@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 body {
-  @apply bg-black;
+  @apply bg-black-base text-white-base;
 }
 h1 {
   @apply text-xl font-bold md:text-3xl;
 }
 
 h2 {
-  @apply text-xl font-extrabold;
+  @apply font-krona text-xl;
 }

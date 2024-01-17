@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@heroicons/react@^2.0.13":
-  version "2.0.13"
-  resolved "https://registry.npmjs.org/@heroicons/react/-/react-2.0.13.tgz"
-  integrity sha512-iSN5XwmagrnirWlYEWNPdCDj9aRYVD/lnK3JlsC9/+fqGF80k8C7rl+1HCvBX0dBoagKqOFBs6fMhJJ1hOg1EQ==
-
 "@netlify/classnames-template-literals@^1.0.3":
   version "1.0.3"
   resolved "https://registry.npmjs.org/@netlify/classnames-template-literals/-/classnames-template-literals-1.0.3.tgz"
@@ -399,6 +394,11 @@ loose-envify@^1.1.0:
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
+
+lucide-react@^0.294.0:
+  version "0.294.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.294.0.tgz#dc406e1e7e2f722cf93218fe5b31cf3c95778817"
+  integrity sha512-V7o0/VECSGbLHn3/1O67FUgBwWB+hmzshrgDVRJQhMh8uj5D3HBuIvhuAmQTtlupILSplwIZg5FTc4tTKMA2SA==
 
 merge2@^1.3.0:
   version "1.4.1"

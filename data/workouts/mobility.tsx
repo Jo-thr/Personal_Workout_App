@@ -1,13 +1,8 @@
+import Win from "@public/images/champion.jpg";
+
 const mobility = {
   name: "Mobilité",
   slug: "mobilite",
-  categorie: "Vertical Jump",
-  series: 1,
-  numberWork: 5,
-  image: {
-    title: "mobility",
-    src: "/images/mobility.png",
-  },
   works: [
     {
       id: 1,
@@ -26,15 +21,8 @@ const mobility = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: {
-        mesure: "Alterner",
-        object: "Haut <-> Bas",
-      },
-      series: [{ number: 10, object: "séries" }],
+      repetition: 10,
+      object: "Alterner Haut <-> Bas",
     },
     {
       id: 2,
@@ -53,15 +41,8 @@ const mobility = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: {
-        mesure: "Alterner",
-        object: "Gauche <-> Droite",
-      },
-      series: [{ number: 20, object: "séries" }],
+      repetition: 20,
+      object: "Alterner Gauche <-> Droite",
     },
     {
       id: 3,
@@ -85,21 +66,8 @@ const mobility = {
         url: "",
         title: "",
       },
-      duration: {
-        mesure: "Alterner",
-        object: "Gauche <-> Droite",
-      },
-      repetition: [
-        {
-          number: 10,
-          object: "reps à Gauche",
-        },
-        {
-          number: 10,
-          object: "reps à Droite",
-        },
-      ],
-      series: [{ number: 1, object: "séries" }],
+      repetition: 20,
+      object: "10 à gauche puis 10 à droite",
     },
     {
       id: 4,
@@ -117,15 +85,8 @@ const mobility = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
-        title: "",
-      },
-      duration: {
-        mesure: "Alterner",
-        object: "Intérieur <-> Extérieur",
-      },
-      series: [{ number: 15, object: "séries" }],
+      repetition: 15,
+      object: "Alterner Intérieur <-> Extérieur",
     },
     {
       id: 5,
@@ -144,12 +105,18 @@ const mobility = {
         src: "",
         title: "",
       },
-      video: {
-        url: "",
+      repetition: 20,
+      object: "reps sur chaque pied",
+    },
+
+    /* END */
+    {
+      id: 6,
+      name: "You're the boss !",
+      image: {
+        src: Win,
         title: "",
       },
-      repetition: [{ number: 5, object: "reps sur chaque pied" }],
-      series: [{ number: 4, object: "séries" }],
     },
   ],
 };

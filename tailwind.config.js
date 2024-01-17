@@ -1,13 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 
 const THEME_COLORS = {
-  primary: "#5856FF",
-  secondary: "#65B1AD",
-  black: "#000000",
-  "lighten-gray": "#787A8D",
-  "light-gray": "#3A3B49",
-  gray: "#292934",
-  "dark-gray": "#17171C",
+  black: {
+    base: "#161818",
+    darken: "#202222",
+    dark: "#363939",
+    light: "#434849",
+    lighten: "#8A8C91",
+  },
+  white: {
+    base: "#FFFFFF",
+    light: "#EBEBEB",
+  },
+  primary: "#00F0C5",
 };
 
 module.exports = {
@@ -21,6 +26,9 @@ module.exports = {
     extend: {
       colors: {
         ...THEME_COLORS,
+      },
+      fontFamily: {
+        krona: ["Krona One"],
       },
       boxShadow: {
         blur: "0px 0px 15px 0px rgba(0,0,0,0.10)",
