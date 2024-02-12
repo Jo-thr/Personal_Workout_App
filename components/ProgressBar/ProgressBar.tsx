@@ -1,5 +1,3 @@
-import React from "react";
-
 export type ProgressBarProps = {
   current: number;
   total: number;
@@ -17,6 +15,9 @@ const ProgressBar = ({ current, total, className }: ProgressBarProps) => {
             {`${Math.floor(percentage)}%`}
           </span>
         </div>
+        <span className="inline-block text-xs font-semibold text-primary ">
+          {current} / {total}
+        </span>
       </div>
       <div className="mb-4 flex h-2 overflow-hidden rounded-full bg-black-base text-xs">
         <div

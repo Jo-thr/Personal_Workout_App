@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex h-screen w-full flex-col items-start p-6">
+    <div className="mx-auto flex h-screen w-full max-w-3xl flex-col items-start p-6">
       <div className="w-full border-b border-white-light py-2">
         {datas.home.programTitle}
       </div>

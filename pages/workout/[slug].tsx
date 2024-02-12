@@ -1,14 +1,13 @@
 // @ts-nocheck
 
-import datas from "@data/datas";
-import { useRouter } from "next/router";
 import ProgressBar from "@components/ProgressBar/ProgressBar";
-import { useState } from "react";
-import { Check, ChevronLeft, Info, Pause, Play } from "lucide-react";
 import Timer from "@components/Timer/Timer";
-import Image from "next/image";
+import datas from "@data/datas";
 import Placeholder from "@public/placeholder.jpg";
-import ts from "typescript";
+import { Check, ChevronLeft, Info, Pause, Play } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function WorkPage() {
   const router = useRouter();
@@ -49,7 +48,7 @@ export default function WorkPage() {
         .map((work) => (
           <div
             key={work.id}
-            className="flex h-screen min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-black-light"
+            className="relative mx-auto flex h-screen min-h-screen w-full max-w-3xl flex-col items-center justify-between overflow-hidden bg-black-light"
           >
             <button
               onClick={handleBack}
