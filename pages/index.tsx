@@ -1,5 +1,5 @@
 import datas from "@data/datas";
-import { ChevronsRight } from "lucide-react";
+import { ChevronsRight, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -21,11 +21,12 @@ export default function Home() {
             }
             className={`${
               isSelected === item.name
-                ? "border-primary bg-primary/80"
+                ? "border-primary bg-primary/80 !font-semibold"
                 : "border-primary/25 bg-transparent"
-            } rounded-full border px-3 py-2 text-xs`}
+            } flex flex-row items-center gap-2 rounded-full border px-3 py-2 text-xs font-light uppercase`}
           >
             {item.name}
+            {isSelected === item.name && <X className="h-4 w-4" />}
           </button>
         ))}
       </div>
