@@ -48,7 +48,7 @@ export default function WorkPage() {
         .map((work) => (
           <div
             key={work.id}
-            className="relative mx-auto flex h-screen min-h-screen w-full max-w-3xl flex-col items-center justify-between overflow-hidden bg-black-light"
+            className="relative mx-auto flex h-screen min-h-screen w-full max-w-2xl flex-col items-center justify-between overflow-hidden bg-black-light"
           >
             <button
               onClick={handleBack}

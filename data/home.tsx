@@ -1,12 +1,14 @@
-import Jump from "@public/picto/jump.png";
-import Muscle from "@public/picto/muscle.png";
 import Abdos from "@public/picto/abdos.png";
 import Echauffement from "@public/picto/echauffement.png";
+import Jump from "@public/picto/jump.png";
+import Muscle from "@public/picto/muscle.png";
 
 const Home = {
   title: "Welcome",
   // subtitle: "You're only few steps away to dunk",
   programTitle: "Workout programs",
+  filters: [],
+  categories: [{ name: "Routine" }, { name: "Vertical Jump" }],
   works: [
     {
       title: "Échauffement",
