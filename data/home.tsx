@@ -8,23 +8,33 @@ const Home = {
   // subtitle: "You're only few steps away to dunk",
   programTitle: "Workout programs",
   filters: [],
-  categories: [{ name: "Routine" }, { name: "Vertical Jump" }],
+  categories: [
+    { name: "Muscu" },
+    { name: "Routine" },
+    { name: "Vertical Jump" },
+  ],
   works: [
     {
-      title: "Échauffement",
+      title: "Morning routine",
       categorie: "Routine",
+      slug: "workout/morning-routine",
+      picto: Echauffement,
+    },
+    {
+      title: "Échauffement",
+      categorie: "Muscu",
       slug: "workout/echauffement-routine",
       picto: Echauffement,
     },
     {
       title: "100 Pompes",
-      categorie: "Routine",
+      categorie: "Muscu",
       slug: "workout/pompes",
       picto: Muscle,
     },
     {
       title: "Abdos",
-      categorie: "Routine",
+      categorie: "Muscu",
       slug: "workout/abdos",
       picto: Abdos,
     },
